@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DES</title>
+    <link rel="icon" href="img/logo.png" type="image/png"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+</head>
+<body background="img/fondo2.jpg"
+style="background-repeat: no-repeat !important;
+background-attachment: scroll !important;
+background-position: center center !important;
+z-index: auto;
+background-size: cover !important;
+-webkit-background-size: cover !important;
+-moz-background-size: cover !important;
+-o-background-size: cover !important;">
+	<div id="header">
+		<div class="logo">
+		  <a href="#">DES</a>
+		</div>  
+		<nav>
+		  <ul>
+			<li>
+			  <a href="index.html">MENU</a>
+			</li>
+		  </ul>
+		</nav>
+	  </div><br>
+    <form name="form">
+		<br>
+		<hr><br>
+		<strong style="font-size: 25px;">MENSAJE</strong><br><br>
+		<hr><br>
+		<table>
+			<tr valign="top">
+				<td>
+					<input type="file" onChange="readfile(this.files[0], 0)"></input>
+					<textarea name="input" cols="38" rows="8" placeholder="Una vez seleccionado el archivo, se mostrará el contenido de este mismo" wrap="virtual" disabled></textarea> 
+					<br>
+				</td>
+				<td>
+					<h4>Selecciona el tipo de dato</h4><br>
+					<input type="radio" name="input_type" checked="checked"> Alfabeto</input>
+					<br><br>
+					<input type="radio" name="input_type"> Número Hexadecimal</input>
+					<br>
+					<strong><h5>ADVERTENCIA</h5></strong><br>
+					<h6>Si el tamaño de los datos de entrada no es un múltiplo de 64 bits, los caracteres "\ 0" 
+					se agregan al mensaje (en codificación Alfabeto), se agrega 0 al comienzo del número hexadecimal</h6>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr><br>
+		<strong style="font-size: 25px;">CLAVE</strong><br><br>
+		<hr>
+		<table><br>
+			<tr valign="top">
+				<td>
+					<input type="file" onChange="readfile(this.files[0], 1)"></input><br>
+					<textarea id="clave" name="key" cols="50" rows="2" wrap="virtual" maxlength="16" placeholder="Una vez seleccionado el archivo, se mostrará el contenido de este mismo" disabled></textarea> 
+				</td>
+				<td>
+					<strong><h5 style="margin-left: 2rem;">ADVERTENCIA</h5></strong><br>
+					<h6 style="margin-left: 2rem;">La clave debe de ser de 64 bits, es decir de 16 números hexadecimales</h6>
+					<input type="radio" name="key_type" style="visibility: hidden;"></input>
+					<br>
+					<input type="radio" name="key_type" checked="checked" style="visibility: hidden;"></input>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr><br>
+		<div style="margin-left: 3rem;">
+			<input type="button" value="   Cifrar   " onclick="main(true);" style="font-size: 18px; background-color: #7C038C; color: white;">
+			<input type="button" value="  Descifrar  " onclick="main(false);" style="margin-left: 2rem; font-size: 18px; background-color: #7C038C; color: white;"><br><br>
+		</div>
+		<hr><br>
+		<strong style="font-size: 25px;">MENSAJE CIFRADO/DESCIFRADO</strong><br><br>
+		<hr><br>
+		<table>
+			<tr valign="top">
+				<td>
+					<textarea id="output" name="output" cols="40" rows="6" wrap="virtual" placeholder="Se mostrará el mensaje cifrado/descifrado" disabled></textarea> 
+					<br>
+				</td>
+				<td>
+					<h4 style="margin-left: 5rem;">Selecciona el tipo de dato</h4><br>
+					<input type="radio" name="output_type" style="margin-left: 5rem;"> Alfabeto</input>
+					<br><br>
+					<input type="radio" name="output_type" checked="checked" style="margin-left: 5rem;"> Número Hexadecimal</input>
+				</td>
+			</tr>
+		</table><br>
+	</form>
+	<br/>
+	<input type="button" id="boton-txt" value=" Descargar Mensaje Cifrado/Descifrado " style="margin-left: 5rem; font-size: 25px; background-color: #7C038C; color: white;"/><br><br>
+	<input type="button" id="boton-txt2" value=" Descargar Clave" style="margin-left: 5rem; font-size: 25px; background-color: #7C038C; color: white;"/><br><br>
+	<script type="text/JavaScript" src="js/des.js"></script>
+	</body>
+</html>

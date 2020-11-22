@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AES</title>
+    <link rel="icon" href="img/logo.png" type="image/png"/>
+    <link href="css/estilo.css" rel="stylesheet" type="text/css"/>
+    <script src="js/aesC/crypto/rollups/aes.js"></script>
+	<script src="js/aesC/crypto/rollups/md5.js"></script>
+	<script src="js/aesC/crypto/rollups/pbkdf2.js"></script>
+    <script src="js/aesC/jquery/dist/jquery.js"></script>
+    <script>
+        function encrypt() {
+            console.log(CryptoJS.AES.encrypt($('#input').val(), $('#clave').val()).toString());
+            $('#output').html(CryptoJS.AES.encrypt($('#input').val(), $('#clave').val()).toString());
+        }
+
+        function decrypt() {
+            console.log(CryptoJS.AES.encrypt($('#input').val(), $('#clave').val()).toString());
+            $('#output')
+                .html(CryptoJS.AES.decrypt($('#input').val(), $('#clave').val())
+                .toString(CryptoJS.enc.Utf8));
+        }
+    </script>
+</head>
+<body background="img/fondo2.jpg"
+style="background-repeat: no-repeat !important;
+background-attachment: scroll !important;
+background-position: center center !important;
+z-index: auto;
+background-size: cover !important;
+-webkit-background-size: cover !important;
+-moz-background-size: cover !important;
+-o-background-size: cover !important;">
+	<div id="header">
+		<div class="logo">
+		  <a href="#">AES</a>
+		</div>  
+		<nav>
+		  <ul>
+			<li>
+			  <a href="index.html">MENU</a>
+			</li>
+		  </ul>
+		</nav>
+    </div><br>
+    <div class="idd">
+        <br>
+		<hr><br>
+		<strong style="font-size: 25px;">MENSAJE</strong><br><br>
+        <hr><br>
+        <textarea style="margin-left: 5rem;" id="input" name="key" cols="38" rows="8" placeholder="Una vez seleccionado el archivo, se mostrará el contenido de este mismo" wrap="virtual"></textarea> 
+        <br>
+		<hr><br>
+		<strong style="font-size: 25px; margin-left: 5rem;">CLAVE</strong><br><br>
+        <hr><br><br>
+        <textarea style="margin-left: 5rem;" id="clave" name="clave" cols="50" rows="2" wrap="virtual" maxlength="16" placeholder="Una vez seleccionado el archivo, se mostrará el contenido de este mismo"></textarea>
+		<button style="border-radius: 25px; margin-left: 5rem; font-size: 25px; background-color: #7C038C; color: white;" onclick="encrypt()">   Cifrar   </button>
+		<button style="border-radius: 25px; margin-left: 2rem; font-size: 25px; background-color: #7C038C; color: white;" onclick="decrypt()">  Descifrar  </button>
+        <hr><br>
+		<strong style="font-size: 25px;">MENSAJE CIFRADO/DESCIFRADO</strong><br><br>
+        <hr><br>
+        <textarea style="margin-left: 5rem;" id="output" name="output" cols="40" rows="6" wrap="virtual" placeholder="Se mostrará el mensaje cifrado/descifrado" disabled></textarea> 
+		<br><br>
+    </div><br>
+	<input type="button" id="boton-txt" value=" Descargar Mensaje Cifrado/Descifrado " style="margin-left: 5rem; font-size: 25px; background-color: #7C038C; color: white;"/><br><br>
+	<input type="button" id="boton-txt2" value=" Descargar Clave" style="margin-left: 5rem; font-size: 25px; background-color: #7C038C; color: white;"/><br><br>
+    <script type="text/JavaScript" src="js/aes.js"></script>    
+</body>
+</html>
